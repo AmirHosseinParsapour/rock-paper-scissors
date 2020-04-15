@@ -1,0 +1,17 @@
+main{
+    display: inline-block;
+}
+#command{
+    background-color:rgba(151, 140, 140, 0.35);
+    font-family:'Fira Code', sans-serif;
+    font-size: 12px;
+    position: relative;
+    top: -1px;
+    color: darkviolet;
+}
+header{
+    color: dodgerblue;
+}
+h1{
+    text-align: center;
+}

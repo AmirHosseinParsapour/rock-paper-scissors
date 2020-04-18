@@ -55,9 +55,10 @@ function clicked(e){
   let newScore = +score + 1;
   lbl.innerText = newScore;
   if(winner == "player"){
-  meme.innerText = `${e.target.dataset['choice']} beats ${computerChoice}`;}
+    meme.innerText = `${e.target.dataset['choice']} beats ${computerChoice}`;
+  }
   else{
-    meme.innerText = `${computerChoice} beats ${e.target.dataset['choice']}`;}
+    meme.innerText = `${computerChoice} beats ${e.target.dataset['choice']}`;
   }
   meme.classList.add('showing');
 }

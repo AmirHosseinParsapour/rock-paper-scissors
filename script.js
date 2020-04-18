@@ -3,12 +3,15 @@ function getRandom(min, max){
 }
 function computerPlay(){
     var choices = ["rock", "paper", "scissors"];
-    var randomNom = getRandom(0,2);
+    var randomNom = getRandom(0,3);
+    console.log(randomNom);
     return choices[randomNom];
 }
 function playRound(playerChoice, computerChoice){
     let playerChoiceString = playerChoice.toLowerCase();
     let computerChoiceString = computerChoice.toLowerCase();
+    console.log(playerChoiceString);
+    console.log(computerChoiceString);
     if(playerChoiceString==computerChoiceString) return "draw";
     if(playerChoiceString == "rock")
     {
@@ -32,35 +35,32 @@ function playRound(playerChoice, computerChoice){
     }
     return "player";
 }
-function play(count)
-{
-    var playerScore = 0;
-    var computerScore = 0;
-    for(var i = 0; i < count; i++){
-        var playerChoice = prompt("rock|paper|scissors").toLowerCase().trim();
-        var computerChoice = computerPlay();
-        var resault = playRound(playerChoice, computerChoice);
-        if(resault == "player"){
-            playerScore++;
-            alert(playerChoice + " beats " + computerChoice);
-        }
-        else if(resault == "computer"){
-            computerScore++;
-            alert(computerChoice + " beats " + playerChoice);
-        }
-        else{alert("draw")}
-    }
-    if(computerScore > playerScore)
-    {
-        alert("Sorry, You lost");
-    }
-    if(computerScore < playerScore)
-    {
-        alert("Yay, You won");
-    }
-    if(computerScore==playerScore){
-        alert("How did you manage that??! DRAW!");
-    }
-    alert("Your Score: " + playerScore);
-    alert("Computer Score: " + computerScore);
+
+var buttons = document.querySelectorAll('.button');
+buttons.forEach(key=>key.addEventListener('click', clicked));
+
+
+function clicked(e){
+  const computerChoice = computerPlay();
+  const winner = playRound(e.target.dataset['choice'], computerChoice);
+  const lbl = document.querySelector(`span[data-id=${winner}]`);
+  const meme = document.querySelector('.label');
+  if(!lbl){//draw
+    meme.innerText = 'DRAW!';
+    meme.classList.add('showing');
+    return;
+    //stop function from running all toghether
+  }
+  let score = lbl.innerText;
+  let newScore = +score + 1;
+  lbl.innerText = newScore;
+  meme.innerText = `${e.target.dataset['choice']} beats ${computerChoice}`;
+  meme.classList.add('showing');
 }
+
+function dontShow(e){
+  this.classList.remove('showing');
+}
+
+const meme = document.querySelector('.label');
+meme.addEventListener('transitionend', dontShow);

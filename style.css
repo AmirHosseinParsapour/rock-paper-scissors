@@ -1,14 +1,10 @@
-main{
-    display: inline-block;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@400;500;600;700;800&display=swap');
+
+html{
+  font-size: 14px;
+  font-family: 'Baloo Bhaina 2' , cursive;
 }
-#command{
-    background-color:rgba(151, 140, 140, 0.35);
-    font-family:'Fira Code', sans-serif;
-    font-size: 12px;
-    position: relative;
-    top: -1px;
-    color: darkviolet;
-}
+
 header{
     color: dodgerblue;
 }
@@ -18,4 +14,64 @@ h1{
 img{
     display:block;
     margin: auto;
+}
+.label {
+  position: relative;
+  top: 20px;
+  visibility: hidden;
+  transition: all 1.5s ease;
+  text-align: center;
+  width: 400px;
+  display: block;
+  margin: auto;
+  line-height: 1.5;
+}
+.showing{
+  background-color: red;
+  visibility: visible;
+  font-style: italic;
+}
+.buttons{
+  display: grid;
+  margin: auto;
+  width: 250px;
+  grid-template-areas: "btn1 btn2 btn3";
+  grid-column-gap: 2px;
+  background-color:  #45b39d;
+}
+.resault{
+  background-color:  #ffaa76 ;
+  margin: auto;
+  width: 350px;
+  position: relative;
+  top: 10px;
+  color: #0078ff;
+  align-items: center;
+  display: grid;
+  grid-template-areas: "computer player";
+  align-items: center;
+  justify-content: center;
+  grid-column-gap: 20px;
+}
+span{
+  vertical-align: center;
+  justify-content: center;
+}
+.player, .computer{
+  vertical-align: center;
+  display: grid;
+  grid-template-areas: "label"
+  "text";
+  padding-bottom: 0px;
+  align-items: center;
+  justify-content: center;
+  grid-row-gap: 30px;
+}
+#player-score, #computer-score{
+  margin-left: 50%;
+  margin-bottom: 10px;
+}
+.computer{
+  position: relative;
+  right: 20px;
 }
